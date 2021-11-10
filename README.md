@@ -1,0 +1,2 @@
+# bingoEstudy
+Projeto Estudo

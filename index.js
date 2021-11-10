@@ -13,7 +13,6 @@ let a_numerosBingo = [];
 // teste
 let cartelas = [];
 cartelas[0] = new bingo_cartela(1);
-// cartelas[0].gerarCartela;
 //
 
 window.onload = function () {
@@ -36,9 +35,10 @@ window.onload = function () {
 
 function bingo_cartela(id) {
   this.id = id;
-  this.cartela = []; //24
+  this.cartela = [] //24
 
-  this.gerarCartela = gerarNumerosCartela(this.cartela);
+  // this.gerarCartela = b_gerarNumerosCartela(this.cartela, "B");
+  this.gerarCartela = b_gerarNumerosCartela(this.cartela, "I");
 }
 
 //  ---------------------
@@ -92,6 +92,8 @@ function gerarNumero() {
   }
 }
 
+
+
 function gerarNumerosCartela(arrayCartela) {
   let n_sorteado;
   while (arrayCartela.length < 24) {
@@ -100,4 +102,27 @@ function gerarNumerosCartela(arrayCartela) {
       arrayCartela.push(n_sorteado);
     }
   }
+}
+
+
+
+function b_gerarNumerosCartela(arrayCartela, b_letra){
+  let c_max, c_min;
+  switch(b_letra){
+    case 'B':
+      c_max=15;
+      c_min=1;
+      break;
+    case 'I':
+      c_max=30;
+      c_min=16;
+      break;
+  }
+  while (arrayCartela.length < 5) {
+    n_sorteado = Math.floor(Math.random() * (c_max + 1 - c_min)) + c_min;
+    if (arrayCartela.indexOf(n_sorteado) === -1) {
+      arrayCartela.push(n_sorteado);
+    }
+  }
+
 }

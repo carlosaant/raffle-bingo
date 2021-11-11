@@ -150,9 +150,9 @@ function gerarCartela() {
   let c_conf = confirm("Deseja Gerar uma Nova Cartela?");
   if (c_conf) {
     array_cartelas.push(new bingo_cartela(idCartela++));
+    exibeCartela(array_cartelas[array_cartelas.length-1]);
   }
 
-  exibeCartela(array_cartelas[0]);
 }
 
 function bingo_cartela(id) {
@@ -195,7 +195,7 @@ function b_gerarNumerosCartela(b_letra) {
       nova_cartela.push(n_sorteado);
     }
   }
-  if (b_letra === "N") nova_cartela[2] = "x";
+  if (b_letra === "N") nova_cartela[2] = "X";
   return nova_cartela;
 }
 
@@ -231,12 +231,40 @@ function exibeCartela(a_Cartela) {
               <th>G</th>
               <th>O</th>
             </tr>
+              <tr>
+                <td>`+a_Cartela.cartelaB[0]+`</td>
+                <td>`+a_Cartela.cartelaI[0]+`</td>
+                <td>`+a_Cartela.cartelaN[0]+`</td>
+                <td>`+a_Cartela.cartelaG[0]+`</td>
+                <td>`+a_Cartela.cartelaO[0]+`</td>
+              </tr>
             <tr>
-              <td>`+5+`</td>
-              <td>14</td>
-              <td>10</td>
-              <td>10</td>
-              <td>10</td>
+              <td>`+a_Cartela.cartelaB[1]+`</td>
+              <td>`+a_Cartela.cartelaI[1]+`</td>
+              <td>`+a_Cartela.cartelaN[1]+`</td>
+              <td>`+a_Cartela.cartelaG[1]+`</td>
+              <td>`+a_Cartela.cartelaO[1]+`</td>
+            </tr>
+            <tr>
+              <td>`+a_Cartela.cartelaB[2]+`</td>
+              <td>`+a_Cartela.cartelaI[2]+`</td>
+              <td>`+a_Cartela.cartelaN[2]+`</td>
+              <td>`+a_Cartela.cartelaG[2]+`</td>
+              <td>`+a_Cartela.cartelaO[2]+`</td>
+            </tr>
+            <tr>
+              <td>`+a_Cartela.cartelaB[3]+`</td>
+              <td>`+a_Cartela.cartelaI[3]+`</td>
+              <td>`+a_Cartela.cartelaN[3]+`</td>
+              <td>`+a_Cartela.cartelaG[3]+`</td>
+              <td>`+a_Cartela.cartelaO[3]+`</td>
+            </tr>
+            <tr>
+              <td>`+a_Cartela.cartelaB[4]+`</td>
+              <td>`+a_Cartela.cartelaI[4]+`</td>
+              <td>`+a_Cartela.cartelaN[4]+`</td>
+              <td>`+a_Cartela.cartelaG[4]+`</td>
+              <td>`+a_Cartela.cartelaO[4]+`</td>
             </tr>
           </table>
   `;
@@ -244,8 +272,8 @@ function exibeCartela(a_Cartela) {
   console.log(a_Cartela.cartelaB[0]);
 }
 
-function carregaCasas(Array) {
-  for (let i = 0; i < Array.length; i++) {
-      "alou"
-  }
-}
+// function carregaCasas(Array) {
+//   for (let i = 0; i < Array.length; i++) {
+      
+//   }
+// }

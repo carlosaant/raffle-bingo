@@ -4,17 +4,22 @@ let b_bingo;
 let d_bingo;
 let b_reset;
 let t_numerosSorteados;
+let b_gerarCartela;
+let a_Cartelas;
 
 let max = 75;
 let min = 1;
 
 let a_numerosBingo = [];
 
+let array_cartelas = [];
+let idCartela = 0;
+
 // teste
 // let cartelas = [];
 // cartelas[0] = new bingo_cartela(1, "B");
 // cartelas[0] = new bingo_cartela(1, "I");
-let cartelas = criaCartelas(5);
+// let cartelas = criaCartelas(5);
 
 // cartela = [
 //   {1, 2, 3, 4, 5},
@@ -33,12 +38,15 @@ window.onload = function () {
   d_bingo.style.visibility = "hidden";
   b_reset = document.getElementById("b_reset");
   b_reset.style.display = "none";
+  b_gerarCartela = document.getElementById("c_GerarCartelabingo");
+  a_Cartelas = document.getElementById("a_Cartelas");
 
   t_numerosSorteados = document.getElementById("t_num_sorteados");
   t_numerosSorteados.style.visibility = "hidden";
 
   b_bingo.addEventListener("click", clickBingo);
   b_reset.addEventListener("click", resetBingo);
+  b_gerarCartela.addEventListener("click", gerarCartela);
   // console.log(v_numBingo);
 };
 
@@ -51,15 +59,6 @@ window.onload = function () {
 //   // this.gerarCartela = b_gerarNumerosCartela(this.cartela, "B");
 //   this.gerarCartela = b_gerarNumerosCartela(this.cartela, "I");
 // }
-
-function bingo_cartela(id) {
-  this.id = id;
-  this.cartelaB = b_gerarNumerosCartela("B");
-  this.cartelaI = b_gerarNumerosCartela("I");
-  this.cartelaN = b_gerarNumerosCartela("N");
-  this.cartelaG = b_gerarNumerosCartela("G");
-  this.cartelaO = b_gerarNumerosCartela("O");
-}
 
 //  ---------------------
 
@@ -143,6 +142,24 @@ function gerarNumero() {
 
 // }
 
+function gerarCartela() {
+  let c_conf = confirm("Deseja Gerar uma Nova Cartela?");
+  if (c_conf) {
+    array_cartelas.push(new bingo_cartela(idCartela++));
+  }
+
+  exibeCartela(array_cartelas[0]);
+}
+
+function bingo_cartela(id) {
+  this.id = id;
+  this.cartelaB = b_gerarNumerosCartela("B");
+  this.cartelaI = b_gerarNumerosCartela("I");
+  this.cartelaN = b_gerarNumerosCartela("N");
+  this.cartelaG = b_gerarNumerosCartela("G");
+  this.cartelaO = b_gerarNumerosCartela("O");
+}
+
 function b_gerarNumerosCartela(b_letra) {
   let nova_cartela = [];
   let c_max, c_min;
@@ -191,10 +208,38 @@ function b_gerarNumerosCartela(b_letra) {
 //   return array_cartelas;
 // }
 
-function criaCartelas(quantidade) {
-  let array_cartelas = [];
-  for (let i = 0; i < quantidade; i++) {
-    array_cartelas.push(new bingo_cartela(i));
+// function criaCartelas(quantidade) {
+//   let array_cartelas = [];
+//   for (let i = 0; i < quantidade; i++) {
+//     array_cartelas.push(new bingo_cartela(i));
+//   }
+//   return array_cartelas;
+// }
+
+function exibeCartela(a_Cartela) {
+  a_Cartelas.classList.add("tb-cartela");
+  a_Cartelas.innerHTML += `
+            <table>
+            <tr>
+              <th>B</th>
+              <th>I</th>
+              <th>N</th>
+              <th>G</th>
+              <th>O</th>
+            </tr>
+            <tr>
+              <td>16</td>
+              <td>14</td>
+              <td>10</td>
+              <td>10</td>
+              <td>10</td>
+            </tr>
+          </table>
+  `;
+}
+
+function carregaCasasLinha(Array){
+  for(let i=0; i<Array.length; i++){
+    
   }
-  return array_cartelas;
 }

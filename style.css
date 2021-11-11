@@ -130,13 +130,14 @@ header h1 {
 
 .tb-cartela th{
   border: 1px solid black;
-  font-size: 35px;
+  font-size: 55px;
   font-weight: bold;
+  padding: 3px;
 }
 
 .tb-cartela table, td{
   border: 1px solid black;
   background-color: white;
   text-align: center;
-  font-size: 30px;
+  font-size: 40px;
 }

@@ -68,14 +68,18 @@ function clickBingo() {
     b_bingo.disabled = true;
     b_reset.style.display = "block";
   } else {
-    v_numBingo.innerText = exibeBingoTela(gerarNumero());
+    if (array_cartelas.length != 0) {
+      v_numBingo.innerText = exibeBingoTela(gerarNumero());
 
-    //melhorar depois
-    t_numerosSorteados.style.visibility = "visible";
-    t_numerosSorteados.innerHTML +=
-      "<span class='n-sorteado'>" + v_numBingo.textContent + "</span>";
+      //melhorar depois
+      t_numerosSorteados.style.visibility = "visible";
+      t_numerosSorteados.innerHTML +=
+        "<span class='n-sorteado'>" + v_numBingo.textContent + "</span>";
 
-    console.log(a_numerosBingo);
+      console.log(a_numerosBingo);
+    } else {
+      alert("Voce Precisa gerar uma cartela antes de iniciar o Bingo!");
+    }
   }
 }
 
@@ -228,7 +232,7 @@ function exibeCartela(a_Cartela) {
               <th>O</th>
             </tr>
             <tr>
-              <td>16</td>
+              <td>`+5+`</td>
               <td>14</td>
               <td>10</td>
               <td>10</td>
@@ -236,10 +240,12 @@ function exibeCartela(a_Cartela) {
             </tr>
           </table>
   `;
+
+  console.log(a_Cartela.cartelaB[0]);
 }
 
-function carregaCasasLinha(Array){
-  for(let i=0; i<Array.length; i++){
-    
+function carregaCasas(Array) {
+  for (let i = 0; i < Array.length; i++) {
+      "alou"
   }
 }

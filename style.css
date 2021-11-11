@@ -7,7 +7,10 @@
 header {
   width: 100%;
   height: 100px;
-  background-color: brown;
+  background: #b92b27;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #1565C0, #b92b27);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #1565C0, #b92b27); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
 }
 
 header h1 {
@@ -20,7 +23,11 @@ header h1 {
 .tela-bingo {
   width: 700px;
   max-height: 320px;
-  background-color: tomato;
+  
+  background: #FF416C;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #FF4B2B, #FF416C); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
 
   margin-left: auto;
   margin-right: auto;
@@ -126,8 +133,12 @@ header h1 {
 
 .tela-cartelas{
   margin-top: 10px;
-  background-color: red;
   text-align: center;
+
+  background: #FFEFBA;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #FFFFFF, #FFEFBA);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #FFFFFF, #FFEFBA); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
 }
 
 .tb-cartela table{

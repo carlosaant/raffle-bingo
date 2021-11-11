@@ -13,7 +13,7 @@ let min = 1;
 let a_numerosBingo = [];
 
 let array_cartelas = [];
-let idCartela = 0;
+let idCartela = 1;
 
 // teste
 // let cartelas = [];
@@ -225,6 +225,9 @@ function exibeCartela(a_Cartela) {
   a_Cartelas.innerHTML += `
             <table>
             <tr>
+            <caption>Cartela: #`+a_Cartela.id+`</caption>
+            </tr>
+            <tr>
               <th>B</th>
               <th>I</th>
               <th>N</th>
@@ -248,7 +251,7 @@ function exibeCartela(a_Cartela) {
             <tr>
               <td>`+a_Cartela.cartelaB[2]+`</td>
               <td>`+a_Cartela.cartelaI[2]+`</td>
-              <td>`+a_Cartela.cartelaN[2]+`</td>
+              <td style="background-color: #8FBC8F;">`+a_Cartela.cartelaN[2]+`</td>
               <td>`+a_Cartela.cartelaG[2]+`</td>
               <td>`+a_Cartela.cartelaO[2]+`</td>
             </tr>
@@ -268,8 +271,6 @@ function exibeCartela(a_Cartela) {
             </tr>
           </table>
   `;
-
-  console.log(a_Cartela.cartelaB[0]);
 }
 
 // function carregaCasas(Array) {

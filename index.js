@@ -52,9 +52,13 @@ window.onload = function () {
 //   this.gerarCartela = b_gerarNumerosCartela(this.cartela, "I");
 // }
 
-function bingo_cartela(id, tipo) {
+function bingo_cartela(id) {
   this.id = id;
-  this.cartela = b_gerarNumerosCartela(tipo);
+  this.cartelaB = b_gerarNumerosCartela("B");
+  this.cartelaI = b_gerarNumerosCartela("I");
+  this.cartelaN = b_gerarNumerosCartela("N");
+  this.cartelaG = b_gerarNumerosCartela("G");
+  this.cartelaO = b_gerarNumerosCartela("O");
 }
 
 //  ---------------------
@@ -170,20 +174,27 @@ function b_gerarNumerosCartela(b_letra) {
       nova_cartela.push(n_sorteado);
     }
   }
+  if (b_letra === "N") nova_cartela[2] = "x";
   return nova_cartela;
 }
 
-
-
 //arrumar a quantidade de cartelas feita pra mesma posicao do array, precisa ter as 5 sequencias dentro de cada
+// function criaCartelas(quantidade) {
+//   let array_cartelas = [];
+//   for (let i = 0; i < quantidade; i++) {
+//     if (i % 2 == 0) {
+//       array_cartelas.push(new bingo_cartela(i, "B"));
+//     } else {
+//       array_cartelas.push(new bingo_cartela(i, "I"));
+//     }
+//   }
+//   return array_cartelas;
+// }
+
 function criaCartelas(quantidade) {
   let array_cartelas = [];
   for (let i = 0; i < quantidade; i++) {
-    if (i % 2 == 0) {
-      array_cartelas.push(new bingo_cartela(i, "B"));
-    } else {
-      array_cartelas.push(new bingo_cartela(i, "I"));
-    }
+    array_cartelas.push(new bingo_cartela(i));
   }
   return array_cartelas;
 }

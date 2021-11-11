@@ -123,21 +123,31 @@ header h1 {
 }
 
 
+
 .tela-cartelas{
+  margin-top: 10px;
   background-color: red;
+  text-align: center;
 }
 
+.tb-cartela table{
+ text-align: center;
+
+ margin: 5px;
+  padding: 5px;
+  display: inline-block;
+  border: 1px solid black;
+  background-color: white;
+}
 
 .tb-cartela th{
   border: 1px solid black;
-  font-size: 55px;
+  font-size: 85px;
   font-weight: bold;
   padding: 3px;
 }
 
-.tb-cartela table, td{
+.tb-cartela td{
   border: 1px solid black;
-  background-color: white;
-  text-align: center;
-  font-size: 40px;
+  font-size: 60px;
 }

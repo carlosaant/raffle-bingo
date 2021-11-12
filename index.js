@@ -2,10 +2,10 @@
 let v_numBingo;
 let b_bingo;
 let d_bingo;
-let b_reset;
 let t_numerosSorteados;
 let b_gerarCartela;
 let a_Cartelas;
+let b_reiniciar;
 
 let max = 75;
 let min = 1;
@@ -36,16 +36,16 @@ window.onload = function () {
   b_bingo = document.getElementById("b_bingo");
   d_bingo = document.getElementById("descBingo");
   d_bingo.style.visibility = "hidden";
-  b_reset = document.getElementById("b_reset");
-  b_reset.style.display = "none";
   b_gerarCartela = document.getElementById("c_GerarCartelabingo");
   a_Cartelas = document.getElementById("a_Cartelas");
+  b_reiniciar = document.getElementById("b_reiniciar");
+  b_reiniciar.disabled = true;
 
   t_numerosSorteados = document.getElementById("t_num_sorteados");
   t_numerosSorteados.style.visibility = "hidden";
 
   b_bingo.addEventListener("click", clickBingo);
-  b_reset.addEventListener("click", resetBingo);
+  b_reiniciar.addEventListener("click", reiniciarBingo);
   b_gerarCartela.addEventListener("click", gerarCartela);
   // console.log(v_numBingo);
 };
@@ -66,12 +66,12 @@ function clickBingo() {
   if (a_numerosBingo.length === max) {
     d_bingo.style.visibility = "visible";
     b_bingo.disabled = true;
-    b_reset.style.display = "block";
   } else {
     if (array_cartelas.length != 0) {
       v_numBingo.innerText = exibeBingoTela(gerarNumero());
 
       //melhorar depois
+      b_reiniciar.disabled = false;
       t_numerosSorteados.style.visibility = "visible";
       t_numerosSorteados.innerHTML +=
         "<span class='n-sorteado'>" + v_numBingo.textContent + "</span>";
@@ -91,16 +91,23 @@ function exibeBingoTela(num_bingo) {
   else if (num_bingo <= 75) return "O - " + num_bingo;
 }
 
-function resetBingo() {
-  b_bingo.disabled = false;
-  b_reset.style.display = "none";
-  d_bingo.style.visibility = "hidden";
-  v_numBingo.innerText = "X";
+function reiniciarBingo() {
+  if (confirm("Deseja Reiniciar o Bingo?")) {
+    b_bingo.disabled = false;
+    d_bingo.style.visibility = "hidden";
+    v_numBingo.innerText = "X";
 
-  t_numerosSorteados.style.visibility = "hidden";
-  t_numerosSorteados.innerText = "";
+    t_numerosSorteados.style.visibility = "hidden";
+    t_numerosSorteados.innerText = "";
 
-  a_numerosBingo.length = 0;
+    a_numerosBingo.length = 0;
+    array_cartelas.length = 0;
+    idCartela = 1;
+    a_Cartelas.innerHTML = "";
+
+    b_reiniciar.disabled = true;
+    alert("Bingo Reiniciado!");
+  }
 }
 
 function gerarNumero() {
@@ -150,9 +157,8 @@ function gerarCartela() {
   let c_conf = confirm("Deseja Gerar uma Nova Cartela?");
   if (c_conf) {
     array_cartelas.push(new bingo_cartela(idCartela++));
-    exibeCartela(array_cartelas[array_cartelas.length-1]);
+    exibeCartela(array_cartelas[array_cartelas.length - 1]);
   }
-
 }
 
 function bingo_cartela(id) {
@@ -222,10 +228,13 @@ function b_gerarNumerosCartela(b_letra) {
 
 function exibeCartela(a_Cartela) {
   a_Cartelas.classList.add("tb-cartela");
-  a_Cartelas.innerHTML += `
+  a_Cartelas.innerHTML +=
+    `
             <table>
             <tr>
-            <caption>Cartela: #`+a_Cartela.id+`</caption>
+            <caption>Cartela: #` +
+    a_Cartela.id +
+    `</caption>
             </tr>
             <tr>
               <th>B</th>
@@ -235,39 +244,89 @@ function exibeCartela(a_Cartela) {
               <th>O</th>
             </tr>
               <tr>
-                <td>`+a_Cartela.cartelaB[0]+`</td>
-                <td>`+a_Cartela.cartelaI[0]+`</td>
-                <td>`+a_Cartela.cartelaN[0]+`</td>
-                <td>`+a_Cartela.cartelaG[0]+`</td>
-                <td>`+a_Cartela.cartelaO[0]+`</td>
+                <td>` +
+    a_Cartela.cartelaB[0] +
+    `</td>
+                <td>` +
+    a_Cartela.cartelaI[0] +
+    `</td>
+                <td>` +
+    a_Cartela.cartelaN[0] +
+    `</td>
+                <td>` +
+    a_Cartela.cartelaG[0] +
+    `</td>
+                <td>` +
+    a_Cartela.cartelaO[0] +
+    `</td>
               </tr>
             <tr>
-              <td>`+a_Cartela.cartelaB[1]+`</td>
-              <td>`+a_Cartela.cartelaI[1]+`</td>
-              <td>`+a_Cartela.cartelaN[1]+`</td>
-              <td>`+a_Cartela.cartelaG[1]+`</td>
-              <td>`+a_Cartela.cartelaO[1]+`</td>
+              <td>` +
+    a_Cartela.cartelaB[1] +
+    `</td>
+              <td>` +
+    a_Cartela.cartelaI[1] +
+    `</td>
+              <td>` +
+    a_Cartela.cartelaN[1] +
+    `</td>
+              <td>` +
+    a_Cartela.cartelaG[1] +
+    `</td>
+              <td>` +
+    a_Cartela.cartelaO[1] +
+    `</td>
             </tr>
             <tr>
-              <td>`+a_Cartela.cartelaB[2]+`</td>
-              <td>`+a_Cartela.cartelaI[2]+`</td>
-              <td style="background-color: #8FBC8F;">`+a_Cartela.cartelaN[2]+`</td>
-              <td>`+a_Cartela.cartelaG[2]+`</td>
-              <td>`+a_Cartela.cartelaO[2]+`</td>
+              <td>` +
+    a_Cartela.cartelaB[2] +
+    `</td>
+              <td>` +
+    a_Cartela.cartelaI[2] +
+    `</td>
+              <td style="background-color: #8FBC8F;">` +
+    a_Cartela.cartelaN[2] +
+    `</td>
+              <td>` +
+    a_Cartela.cartelaG[2] +
+    `</td>
+              <td>` +
+    a_Cartela.cartelaO[2] +
+    `</td>
             </tr>
             <tr>
-              <td>`+a_Cartela.cartelaB[3]+`</td>
-              <td>`+a_Cartela.cartelaI[3]+`</td>
-              <td>`+a_Cartela.cartelaN[3]+`</td>
-              <td>`+a_Cartela.cartelaG[3]+`</td>
-              <td>`+a_Cartela.cartelaO[3]+`</td>
+              <td>` +
+    a_Cartela.cartelaB[3] +
+    `</td>
+              <td>` +
+    a_Cartela.cartelaI[3] +
+    `</td>
+              <td>` +
+    a_Cartela.cartelaN[3] +
+    `</td>
+              <td>` +
+    a_Cartela.cartelaG[3] +
+    `</td>
+              <td>` +
+    a_Cartela.cartelaO[3] +
+    `</td>
             </tr>
             <tr>
-              <td>`+a_Cartela.cartelaB[4]+`</td>
-              <td>`+a_Cartela.cartelaI[4]+`</td>
-              <td>`+a_Cartela.cartelaN[4]+`</td>
-              <td>`+a_Cartela.cartelaG[4]+`</td>
-              <td>`+a_Cartela.cartelaO[4]+`</td>
+              <td>` +
+    a_Cartela.cartelaB[4] +
+    `</td>
+              <td>` +
+    a_Cartela.cartelaI[4] +
+    `</td>
+              <td>` +
+    a_Cartela.cartelaN[4] +
+    `</td>
+              <td>` +
+    a_Cartela.cartelaG[4] +
+    `</td>
+              <td>` +
+    a_Cartela.cartelaO[4] +
+    `</td>
             </tr>
           </table>
   `;
@@ -275,6 +334,6 @@ function exibeCartela(a_Cartela) {
 
 // function carregaCasas(Array) {
 //   for (let i = 0; i < Array.length; i++) {
-      
+
 //   }
 // }

@@ -144,6 +144,11 @@ header h1 {
   border: 1px solid brown;
 }
 
+.buttonReiniciar:hover{
+  background-color: rgb(8, 109, 109);
+  border: 1px solid rgb(8, 109, 109);
+}
+
 .tela-n-sorteados {
   max-width: 620px;
   /* max-height: 200px; */

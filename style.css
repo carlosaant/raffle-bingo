@@ -7,10 +7,17 @@
 header {
   width: 100%;
   height: 100px;
-  background: #b92b27;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #1565C0, #b92b27);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #1565C0, #b92b27); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
+  background: #b92b27; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #1565c0,
+    #b92b27
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #1565c0,
+    #b92b27
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 header h1 {
@@ -23,11 +30,18 @@ header h1 {
 .tela-bingo {
   width: 700px;
   max-height: 320px;
-  
-  background: #FF416C;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #FF4B2B, #FF416C); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
+  background: #ff416c; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #ff4b2b,
+    #ff416c
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #ff4b2b,
+    #ff416c
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
   margin-left: auto;
   margin-right: auto;
@@ -56,14 +70,13 @@ background: linear-gradient(to right, #FF4B2B, #FF416C); /* W3C, IE 10+/ Edge, F
   font-size: 90px;
 }
 
-#descBingo{
+#descBingo {
   width: 200px;
   margin-left: auto;
   margin-right: auto;
   margin-top: 2px;
   border-radius: 15px;
   background-color: floralwhite;
-
 }
 
 .buttonBingo {
@@ -84,21 +97,57 @@ background: linear-gradient(to right, #FF4B2B, #FF416C); /* W3C, IE 10+/ Edge, F
   margin-top: 10px;
 }
 
-#b_reset{
+.buttonBingo:hover{
+  background-color: rgb(223, 124, 39);
+}
+
+.div-buttons {
+  background: #b92b27; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #1565c0,
+    #b92b27
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #1565c0,
+    #b92b27
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  height: 150px;
+  margin-top: 10px;
+  text-align: center;
+  line-height: 150px;
+}
+
+#b_reset {
   background-color: darkorange;
 }
 
-.b-cartela{
+.b-cartela {
   background-color: rosybrown;
   border: 1px solid rosybrown;
+  padding: 10px 40px 10px 40px;
+
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 20px;
+  text-transform: uppercase;
+
+  color: white;
+
+  margin-top: 10px;
+
+}
+.b-cartela:hover{
+  background-color: brown;
+  border: 1px solid brown;
 }
 
-
-
-.tela-n-sorteados{
+.tela-n-sorteados {
   max-width: 620px;
   /* max-height: 200px; */
-  
+
   background-color: slateblue;
   margin-left: auto;
   margin-right: auto;
@@ -112,7 +161,7 @@ background: linear-gradient(to right, #FF4B2B, #FF416C); /* W3C, IE 10+/ Edge, F
   box-sizing: border-box;
 }
 
-.n-sorteado{
+.n-sorteado {
   width: 60px;
   height: 50px;
 
@@ -129,36 +178,41 @@ background: linear-gradient(to right, #FF4B2B, #FF416C); /* W3C, IE 10+/ Edge, F
   display: inline-block;
 }
 
-
-
-.tela-cartelas{
+.tela-cartelas {
   margin-top: 10px;
   text-align: center;
 
-  background: #FFEFBA;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #FFFFFF, #FFEFBA);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #FFFFFF, #FFEFBA); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
+  background: #ffefba; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #ffffff,
+    #ffefba
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #ffffff,
+    #ffefba
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
-.tb-cartela table{
- text-align: center;
+.tb-cartela table {
+  text-align: center;
 
- margin: 5px;
+  margin: 5px;
   padding: 5px;
   display: inline-block;
   border: 1px solid black;
   background-color: white;
 }
 
-.tb-cartela th{
+.tb-cartela th {
   border: 1px solid black;
   font-size: 85px;
   font-weight: bold;
   padding: 3px;
 }
 
-.tb-cartela td{
+.tb-cartela td {
   border: 1px solid black;
   font-size: 60px;
 }

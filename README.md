@@ -1,4 +1,4 @@
-# Projeto de Estudo - Bingo
+# Sorteio e Gerador de cartelas - Bingo
 
 * Projeto desenvolvido com as Tecnologias:
 - HTML
